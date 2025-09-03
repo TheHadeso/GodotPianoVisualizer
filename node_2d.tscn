@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://wqmgercijcja"]
+
+[ext_resource type="Script" path="res://node.gd" id="1_k44u2"]
+[ext_resource type="Script" path="res://keyboard_row.gd" id="3_bvn73"]
+[ext_resource type="Script" path="res://keyboard_part.gd" id="3_j7qr2"]
+[ext_resource type="Script" path="res://keyboardrow.gd" id="3_lsthf"]
+[ext_resource type="Texture2D" uid="uid://1y4ng2ae3ayd" path="res://teclas.png" id="5_inseb"]
+
+[node name="Master" type="Node2D"]
+script = ExtResource("3_lsthf")
+
+[node name="MIDI-INPUT" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_k44u2")
+
+[node name="KeyboardRow" type="Node2D" parent="."]
+position = Vector2(303, 287)
+scale = Vector2(0.316887, 0.316887)
+script = ExtResource("3_bvn73")
+
+[node name="KeyboardPart4" type="Node2D" parent="KeyboardRow"]
+position = Vector2(-500, 305)
+scale = Vector2(0.617959, 0.617959)
+script = ExtResource("3_j7qr2")
+metadata/_edit_group_ = true
+metadata/keyboardindex = 3
+metadata/_edit_lock_ = true
+
+[node name="C" type="Sprite2D" parent="KeyboardRow/KeyboardPart4"]
+position = Vector2(-712.666, 655.435)
+scale = Vector2(0.963859, 0.963859)
+texture = ExtResource("5_inseb")
+centered = false
+region_enabled = true
+region_rect = Rect2(200, 0, 200, 700)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(958, 114)
+scale = Vector2(0.188746, 0.188746)
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[connection signal="KeyPressedSignal" from="MIDI-INPUT" to="KeyboardRow/KeyboardPart4" method="_on_midiinput_key_pressed_signal"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://n0dne8topxrb"]
+
+[ext_resource type="Texture2D" uid="uid://c8g0u25wh334c" path="res://icon.svg" id="1_kgp16"]
+
+[node name="Key" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, 224)
+scale = Vector2(1, 3.5)
+texture = ExtResource("1_kgp16")
